@@ -1,0 +1,51 @@
+# 2016-1, Interrogación 1, Pregunta 4
+# Juegos Olimpicos
+# Programa debe recibir continuamente nombres y puntajes
+# Imprimir : Puntaje maximo: Puntaje, Nombre
+#            Segundo puntaje maximo: Puntaje, Nombre
+#            Puntaje mínimo: Puntaje, Nombre
+#            Competidores, Cantidad
+
+# Pasos
+# 1) Definir variables con las que trabajaremos
+
+maximo = 0
+segundo_lugar = 0
+minimo = 0
+nombre_maximo = 0
+nombre_segundo_lugar = 0
+nombre_minimo = 0
+contador = 0
+
+#2) Crear loop y casos posibles
+while True:
+    nombre = str(input("Ingrese nombre del participante"))
+    if nombre == "FIN":
+        break
+    puntaje = int(input("Ingrese puntaje del participante"))
+    contador += 1
+    if maximo == 0 and minimo == 0:
+        maximo = puntaje
+        minimo = puntaje
+        nombre_maximo = nombre
+        nombre_minimo = nombre
+
+    elif puntaje > maximo:
+        segundo_lugar = maximo
+        nombre_segundo_lugar = nombre_maximo
+        maximo = puntaje
+        nombre_maximo = nombre
+
+    if puntaje < maximo and puntaje > segundo_lugar:
+        segundo_lugar = puntaje
+        nombre_segundo_lugar = nombre
+
+    if puntaje < minimo:
+        minimo = puntaje
+        nombre_minimo = nombre
+
+#3) Imprimir resultados
+print("Maximo puntaje: ", maximo, nombre_maximo)
+print("Segundo lugar: ", segundo_lugar, nombre_segundo_lugar)
+print("Ultimo lugar: ", minimo, nombre_minimo)
+print("Contador: ", contador)
