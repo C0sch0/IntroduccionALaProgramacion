@@ -1,0 +1,56 @@
+class Alumno:
+    def __init__(self, nombre, apellido, color_de_pelo, altura, promedio):
+        self.nombre = nombre
+        self.apellido = apellido
+        self.color_de_pelo = color_de_pelo
+        self.altura = altura
+        self.promedio = promedio
+
+    def estudiar(self):
+        pass
+
+    def llorar(self):
+        print("Quiero pasar Programación !!!")
+
+class SalaDeClases:
+    def __init__(self):
+        self.curso = []
+
+    def agregar_alumno(self, alumno):
+        self.curso.append(alumno)
+
+    def imprimir_lista(self):
+        indice = 1
+        for alumno in self.curso:
+            print(indice,".-", alumno.nombre)
+            indice += 1
+
+    def imprimir_informacion(self):
+        for alumno in self.curso:
+            print("Nombre: {0} \nApellido: {1} \nColor de pelo: {2} \nAltura: {3} \nPromedio: {4} \n-----------"
+                  "".format(alumno.nombre, alumno.apellido, alumno.color_de_pelo, alumno.altura, alumno.promedio))
+
+    def imprimir_promedio(self):
+        promedio = 0
+        cantidad = 0
+        for alumno in self.curso:
+            promedio += alumno.promedio
+            cantidad += 1
+        print("Promedio de curso: ",promedio/cantidad)
+
+
+Sala = SalaDeClases()
+
+alumno1 = Alumno("José", "Rodriguez", "negro", 1.93, 45)
+alumno2 = Alumno("María", "Vial", "rubio", 1.78, 54)
+alumno3 = Alumno("Isidora", "Hernandez", "castaño", 1.59, 70)
+alumno4 = Alumno("Ignacio", "Ruiz", "negro", 1.67, 39)
+
+Sala.agregar_alumno(alumno1)
+Sala.agregar_alumno(alumno2)
+Sala.agregar_alumno(alumno3)
+Sala.agregar_alumno(alumno4)
+
+Sala.imprimir_lista()
+Sala.imprimir_informacion()
+Sala.imprimir_promedio()
